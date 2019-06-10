@@ -1,7 +1,11 @@
 Source Code for ICML 2019 Paper "Shallow-Deep Networks: Understanding and Mitigating Network Overthinking"
+
 Yigitcan Kaya, Sanghyun Hong, Tudor Dumitras
+
 University of Maryland, College Park
+
 Project Website: http://shallowdeep.network
+
 Contact: Yigitcan Kaya - cankaya at umiacs.umd dot edu
 
 
