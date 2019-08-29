@@ -113,7 +113,7 @@ class VGG_SDN(nn.Module):
         self.conv_batch_norm = params['conv_batch_norm']
         self.augment_training = params['augment_training']
         self.init_weights = params['init_weights']
-        self.add_output = params['add_output']
+        self.add_output = params['add_ic']
 
         self.train_func = mf.sdn_train
         self.test_func = mf.sdn_test

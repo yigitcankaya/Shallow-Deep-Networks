@@ -77,7 +77,7 @@ class ResNet_SDN(nn.Module):
         self.augment_training = params['augment_training']
         self.input_size = int(params['input_size'])
         self.block_type = params['block_type']
-        self.add_out_nonflat = params['add_output']
+        self.add_out_nonflat = params['add_ic']
         self.add_output = [item for sublist in self.add_out_nonflat for item in sublist]
         self.init_weights = params['init_weights']
         self.train_func = mf.sdn_train

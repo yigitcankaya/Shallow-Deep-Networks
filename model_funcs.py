@@ -65,7 +65,7 @@ def get_loader(data, augment):
     return train_loader  
 
 
-def sdn_train(model, data, epochs, optimizer, scheduler, robust=False, device='cpu'):
+def sdn_train(model, data, epochs, optimizer, scheduler, device='cpu'):
     augment = model.augment_training
     metrics = {'epoch_times':[], 'test_top1_acc':[], 'test_top5_acc':[], 'train_top1_acc':[], 'train_top5_acc':[], 'lrs':[]}
     max_coeffs = np.array([0.15, 0.3, 0.45, 0.6, 0.75, 0.9]) # max tau_i --- C_i values
@@ -290,7 +290,7 @@ def cnn_training_step(model, optimizer, data, labels, device='cpu'):
     optimizer.step()                # apply gradients
 
 
-def cnn_train(model, data, epochs, optimizer, scheduler, save_func, device='cpu'):
+def cnn_train(model, data, epochs, optimizer, scheduler, device='cpu'):
     metrics = {'epoch_times':[], 'test_top1_acc':[], 'test_top5_acc':[], 'train_top1_acc':[], 'train_top5_acc':[], 'lrs':[]}
 
     for epoch in range(1, epochs+1):
@@ -328,9 +328,6 @@ def cnn_train(model, data, epochs, optimizer, scheduler, save_func, device='cpu'
         metrics['epoch_times'].append(epoch_time)
 
         metrics['lrs'].append(cur_lr)
-
-        if save_func is not None:
-            save_func(model, epoch)
 
     return metrics
     

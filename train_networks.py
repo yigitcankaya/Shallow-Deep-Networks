@@ -134,7 +134,7 @@ def main():
     af.set_logger('outputs/train_models'.format(af.get_random_seed()))
 
     train_models(models_path, device)
-    sdn_train_backdoored(device)
+    sdn_ic_only_backdoored(device)
 
 if __name__ == '__main__':
     main()
