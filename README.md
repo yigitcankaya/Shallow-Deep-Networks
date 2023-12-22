@@ -1,13 +1,20 @@
-Source Code for ICML 2019 Paper "Shallow-Deep Networks: Understanding and Mitigating Network Overthinking"
+## [ICML 2019] Shallow-Deep Networks (Website: [http://shallowdeep.network](http://shallowdeep.network))
 
-Yigitcan Kaya, Sanghyun Hong, Tudor Dumitras
+This repository contains the code for reproducing the results in our paper:
 
-University of Maryland, College Park
+- [Shallow-Deep Networks: Understanding and Mitigating Network Overthinking](https://arxiv.org/abs/1810.07052)
+- [Yigitcan Kaya](http://www.cs.umd.edu/~yigitcan/), [Sanghyun Hong](https://sanghyun-hong.com), Tudor Dumitras
+- University of Maryland, College Park
 
-Project Website: http://shallowdeep.network
+---
 
-Contact: Yigitcan Kaya - cankaya at umiacs.umd dot edu
+### Abstract
 
+We characterize a prevalent weakness of deep neural networks (DNNs)-overthinking-which occurs when a DNN can reach correct predictions before its final layer. Overthinking is computationally wasteful, and it can also be destructive when, by the final layer, a correct prediction changes into a misclassification. Understanding overthinking requires studying how each prediction evolves during a DNN's forward pass, which conventionally is opaque. For prediction transparency, we propose the Shallow-Deep Network (SDN), a generic modification to off-the-shelf DNNs that introduces internal classifiers. We apply SDN to four modern architectures, trained on three image classification tasks, to characterize the overthinking problem. We show that SDNs can mitigate the wasteful effect of overthinking with confidence-based early exits, which reduce the average inference cost by more than 50% and preserve the accuracy. We also find that the destructive effect occurs for 50% of misclassifications on natural inputs and that it can be induced, adversarially, with a recent backdooring attack. To mitigate this effect, we propose a new confusion metric to quantify the internal disagreements that will likely lead to misclassifications.
+
+---
+
+### Pre-requisites
 
 Requirements:
 - Python 3.7
@@ -17,10 +24,13 @@ Requirements:
 - Matplotlib Pyplot
 
 Required data sets:
-- Download TinyImageNet from https://tiny-imagenet.herokuapp.com/, place it under data/ and use data.py - create_val_folder() to generate proper directory structure
+- CIFAR-10/100 (downloaded automatically)
+- [Tiny ImageNet](https://tiny-imagenet.herokuapp.com/)
+- Download and place it under data/ and use data.py - create_val_folder() to generate proper directory structure
 
-- CIFAR-10 and CIFAR-100 will be downloaded automatically
+---
 
+### Reproducing the results
 
 Source code files and corresponding sections in the paper:
 
@@ -34,6 +44,34 @@ Source code files and corresponding sections in the paper:
 
 - Section 5.2: Network Confusion Analysis/Visualizing Confusion Helps with Error Diagnosis --- gradcam_experiments.py finds the test samples that are classified correctly by the first internal classifier and wrongly by the final classifier and uses GradCam to visualize the prominent features that lead to this disagreement
 
+---
+
+### Cite Our Work
+
+Please cite our work if you find our work is helpful.
+
+```
+@InProceedings{Kaya2019SDN,
+  title={Shallow-Deep Networks: Understanding and Mitigating Network Overthinking},
+  author={Kaya, Yigitcan and Hong, Sanghyun and Dumitras, Tudor},
+  booktitle={Proceedings of the 36th International Conference on Machine Learning},
+  pages={3301--3310},
+  year={2019},
+  editor={Chaudhuri, Kamalika and Salakhutdinov, Ruslan},
+  volume={97},
+  series={Proceedings of Machine Learning Research},
+  month={09--15 Jun},
+  publisher={PMLR},
+  pdf={http://proceedings.mlr.press/v97/kaya19a/kaya19a.pdf},
+  url={https://proceedings.mlr.press/v97/kaya19a.html},
+}
+```
+
+---
+
+&nbsp;
+
+Please contact [Yigitcan Kaya](mailto:cankaya@umiacs.umd.edu) for any questions and recommendations.
 
 
 
